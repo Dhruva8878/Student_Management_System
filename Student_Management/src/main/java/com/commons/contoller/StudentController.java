@@ -26,7 +26,7 @@ import com.commons.service.StudentService;
 public class StudentController {
 
 	@Autowired
-	private StudentService studentService;
+	public StudentService studentService;
 
 	@PostMapping("/students/")
 	public ResponseEntity<StudentDTO> registerStudentHandler(@RequestBody StudentDTO studentDTO)

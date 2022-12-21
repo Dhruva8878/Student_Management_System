@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.commons.DTO.CourseDTO;
 import com.commons.DTO.STUpdateDTO;
@@ -25,6 +26,7 @@ import com.commons.repo.StudentRepo;
 
 import springfox.documentation.swagger2.mappers.ModelMapper;
 
+@Service
 public class StudentServiceImpl implements StudentService{
 
 	

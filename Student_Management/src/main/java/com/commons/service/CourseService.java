@@ -11,16 +11,12 @@ import com.commons.model.Course;
 
 public interface CourseService {
 
-	 public Course registerCourse(Course course);
+	 public Course registerCourse(Course course) throws CourseException;
 	 
 	 public List<Course> getAllCourses();
 	 
-	 public CourseDTO removeCourse(Integer id);
+	 public CourseDTO removeCourse(Integer id) throws CourseException;
 	 
-	 public List<CourseDTO> getCourseByTopic(String topic);
-	 
-	 public StudentCourseDTO assignCourseToStudent(Integer studentId,Integer courseId) throws CourseException, StudentException;
-		
-	public CouresStudentDTO getStudentsFromCourse(Integer courseId) throws CourseException;
+	 public List<CourseDTO> getCourseByTopic(String topic) throws CourseException;
 	 
 }
