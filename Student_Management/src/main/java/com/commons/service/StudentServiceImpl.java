@@ -44,6 +44,7 @@ public class StudentServiceImpl implements StudentService{
       
 		Student stds=new Student();
 		
+		
 		stds.setName(studentDTO.getName());
 		stds.setDateOfBirth(studentDTO.getDateOfBirth());
 		stds.setEmail(studentDTO.getEmail());

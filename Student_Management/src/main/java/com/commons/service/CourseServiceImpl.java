@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,9 @@ public class CourseServiceImpl implements CourseService {
     
 	@Autowired 
 	private StudentRepo studentRepo;
+	
+	@Autowired
+	private ModelMapper modelMapper;
 	
 	@Autowired
 	private CourseRepo courseRepo;
@@ -50,14 +54,9 @@ public class CourseServiceImpl implements CourseService {
 		
 		Course course=courseRepo.findById(courseId).orElseThrow(()-> new CourseException("No Course Found with this id :"+courseId));
 		
-		CourseDTO cdto=new CourseDTO(course.getCourseId(),
-				                     course.getCourseName(),
-				                     course.getDescription(),
-				                     course.getCourseType(),
-				                     course.getDuration(),
-				                     course.getTopics());
+		CourseDTO cd=modelMapper.map(course, CourseDTO.class); 
 		
-		return cdto;
+		return cd;
 	}
 
 	@Override
@@ -73,12 +72,7 @@ public class CourseServiceImpl implements CourseService {
 		
 		for(Course course: courses) {
 			
-			CourseDTO cd=new CourseDTO(course.getCourseId(),
-                    course.getCourseName(),
-                    course.getDescription(),
-                    course.getCourseType(),
-                    course.getDuration(),
-                    course.getTopics());
+			CourseDTO cd=modelMapper.map(course, CourseDTO.class);
            
 			cdto.add(cd);
 			
